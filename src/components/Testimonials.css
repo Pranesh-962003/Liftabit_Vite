@@ -1,0 +1,102 @@
+/* ─── TESTIMONIALS ─── */
+#testimonials {
+  padding: clamp(80px, 10vw, 140px) 0;
+  overflow: hidden;
+}
+
+.t-head {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.t-head .eyebrow { justify-content: center; }
+.t-head .section-p { margin: 16px auto 0; text-align: center; }
+
+.t-scroll-wrap {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.t-scroll-wrap::before,
+.t-scroll-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.t-scroll-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg, var(--surface)), transparent);
+}
+
+.t-scroll-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg, var(--surface)), transparent);
+}
+
+.t-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: tScroll 32s linear infinite;
+}
+
+.t-track:hover { animation-play-state: paused; }
+
+.t-card {
+  flex-shrink: 0;
+  width: clamp(280px, 30vw, 360px);
+  background: var(--white);
+  border-radius: var(--r-lg);
+  padding: 32px 30px;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.32s var(--easing), transform 0.32s var(--easing), border-color 0.32s var(--easing);
+}
+
+.t-card:hover {
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  border-color: rgba(255, 119, 0, 0.25);
+}
+
+.t-rating { display: flex; gap: 3px; margin-bottom: 18px; }
+.t-star {
+  width: 12px;
+  height: 12px;
+  background: var(--orange);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.t-quote {
+  font-size: 0.87rem;
+  line-height: 1.72;
+  color: var(--ink-2);
+  font-weight: 400;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.t-author { display: flex; align-items: center; gap: 12px; }
+.t-av {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--border-2);
+}
+
+.t-name { font-size: 0.84rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.t-role { font-size: 0.72rem; color: var(--ink-4); }
+
+@media(max-width:640px) {
+  .t-card { width: min(300px, 85vw); }
+  .t-head { margin-bottom: 36px; }
+}
